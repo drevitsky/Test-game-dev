@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6">
         <h1>Drevitsky Vsevolod</h1>
-        <div v-for="(value, name) in contacts" class="row contact__row">
+        <div v-for="(value, name, index) in contacts" :key="index" class="row contact__row">
           <div class="col-md-2 contact contact__name">
             {{name}} :
           </div>
@@ -13,7 +13,7 @@
         </div>    
       </div>
       <div class="col-md-6">
-        <img src="/img/my-img.jpeg" alt="my-img">
+        <img src="../assets/img/my-img.jpeg" alt="my-img">
       </div> 
     </div>
     <div class="row">
@@ -29,16 +29,11 @@
       <div class="col">
         <button @click="stopShuffle" class="btn btn-secondary">Stop Shuffle</button>
       </div>
-      
-    </div>   
-
-    
+    </div>
   </div>
-  
 </template>
 
 <script>
-
 
 export default {
   data() {
@@ -79,7 +74,6 @@ export default {
       },
       isTrue:false,
       timerId:null
-
     }
   },
   mounted() {
@@ -89,9 +83,9 @@ export default {
     shuffle(array) {
       let currentIndex = array.length, temporaryValue, randomIndex;
       
-      while (0 !== currentIndex) {        
+      while (0 !== currentIndex) {
         randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;        
+        currentIndex -= 1;
         temporaryValue = array[currentIndex];
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
@@ -99,7 +93,7 @@ export default {
       return array;
     },
     stopShuffle() {
-      clearInterval(this.timerId)    
+      clearInterval(this.timerId)
     },
     startShuffle() {
       this.timerId = setInterval(() => {
@@ -108,29 +102,18 @@ export default {
           this.isTrue = !this.isTrue
         }, 0);
         this.isTrue = !this.isTrue
-      }, 5000);      
+      }, 5000);
       this.isTrue = !this.isTrue
     }
-    
   }
 }
 </script>
 
 <style scoped lang="scss">
-.container-fluid {
-  // outline: 1px solid red;
-}
 .container {
   margin: 0 auto;
   min-height: 80vh;
-  /* display: flex; */
-  /* justify-content: space-between; */
-  /* align-items: center; */
   text-align: center;
-}
-/* ============= */
-.col-md-6 {
-  // outline: 1px solid red;
 }
 .skill {
   display: inline-block;
@@ -148,9 +131,7 @@ export default {
   margin: 15px;
   font-size: 20px;
 }
-
 .contact {
-  // outline: 1px solid red;
   padding: 10px ;
   font-size: 16px;
   &__name {
@@ -160,5 +141,4 @@ export default {
     text-align: left;
   }
 }
-
 </style>
