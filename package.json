@@ -9,8 +9,8 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
-    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate"
+    "build:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh-pages": "cross-env DEPLOY_ENV=GH_PAGES nuxt generate"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -20,6 +20,7 @@
     "nuxt-sass-resources-loader": "^2.0.5"
   },
   "devDependencies": {
+    "cross-env": "^7.0.2",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "webpack": "^4.41.6"
