@@ -1,46 +1,45 @@
 <template>
-    <div class="board--game">
-      <div class="row">
-        <div class="col-4">
-          <Select 
-          @changeMode='changeMode' 
-          :gameModes='gameModes' 
-          :isStart='isStart' />
-        </div>
-        <div class="col-4">
-            <input 
-            class="input-name" 
-            type="text" 
-            v-model="playerName" 
-            placeholder="Enter your name" 
-            :disabled='isStart'>
-        </div>
-        <div class="col-4">
-            <button v-if="isStart" class="btn btn-secondary w-100" @click="stopGame()">STOP</button>
-            <button v-else class="btn btn-secondary w-100" @click="playGame()">{{ isEndGame ? 'PLAY AGAIN' : 'PLAY' }}</button>
-        </div>
+  <div class="board--game">
+    <div class="row">
+      <div class="col-4">
+        <Select
+        @changeMode='changeMode'
+        :gameModes='gameModes'
+        :isStart='isStart' />
       </div>
-      
-      <div class="row  mb-3 message-row" >
-        <transition name="scale">
-        <div class="col text-center message-col" v-if='isEndGame'>
-          {{isWin ?'Congratulations ' : 'Sorry '}}{{ playerName }} you {{ isWin ? 'won': 'lose'}}
-        </div>
-        </transition>
-        <transition name="fade">
-        <div v-if='messageError' class="col text-center message-col" >
-          {{ messageError }}
-        </div>
-        </transition>
-      </div> 
-      <Board 
-      :field="field" 
-      :isStart="isStart" 
-      ref="childBoard" 
-      :delay="delay"
-      @EndGame='EndGame'
-      />
+      <div class="col-4">
+          <input 
+          class="input-name"
+          type="text"
+          v-model="playerName"
+          placeholder="Enter your name"
+          :disabled='isStart'>
+      </div>
+      <div class="col-4">
+        <button v-if="isStart" class="btn btn-secondary w-100" @click="stopGame()">STOP</button>
+        <button v-else class="btn btn-secondary w-100" @click="playGame()">{{ isEndGame ? 'PLAY AGAIN' : 'PLAY' }}</button>
+      </div>
     </div>
+    <div class="row  mb-3 message-row">
+      <transition name="scale">
+      <div class="col text-center message-col" v-if='isEndGame'>
+        {{isWin ?'Congratulations ' : 'Sorry '}}{{ playerName }} you {{ isWin ? 'won': 'lose'}}
+      </div>
+      </transition>
+      <transition name="fade">
+      <div v-if='messageError' class="col text-center message-col" >
+        {{ messageError }}
+      </div>
+      </transition>
+    </div>
+    <Board
+    :field="field"
+    :isStart="isStart"
+    ref="childBoard"
+    :delay="delay"
+    @EndGame='EndGame'
+    />
+  </div>
 </template>
 
 <script>
@@ -65,13 +64,13 @@ import Board from '~/components/Board.vue'
         isWin: false,
         messageError: '',
         winnerName:''
-      }      
+      }
     },
     created() {
       this.getGameSetting()
     },
     methods: {
-      playGame() { 
+      playGame() {
         if (!this.currentMode) {
           this.messageError = 'Please select Game mode'
         } 
@@ -158,13 +157,13 @@ import Board from '~/components/Board.vue'
         let day = this.toDobleDigit(date.getDate())
         const fullDate = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`
         return fullDate
-        },
-        toDobleDigit(num) {
-          if (num < 10){
-            return '0' + num
-            }
-          else return String(num) 
-        }
+      },
+      toDobleDigit(num) {
+        if (num < 10){
+          return '0' + num
+          }
+        else return String(num)
+      }
     }
   }
 </script>
@@ -192,7 +191,6 @@ import Board from '~/components/Board.vue'
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     background-color: #eeee;
-    
   }
   .row-description {
     min-height: 24px;

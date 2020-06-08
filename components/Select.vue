@@ -1,11 +1,11 @@
 <template>
   <div>
-    <b-form-select v-model="selected" class="mb-3" 
+    <b-form-select v-model="selected" class="mb-3"
       @change='changeMode' :disabled='isStart'>
       <b-form-select-option :value="null">Pick game mode</b-form-select-option>
-      <b-form-select-option 
-      v-for="mode in Object.keys(gameModes)" 
-      :key="mode" 
+      <b-form-select-option
+      v-for="mode in Object.keys(gameModes)"
+      :key="mode"
       :value="mode"
       >
       {{ mode }}
@@ -32,6 +32,3 @@ import axios from "axios";
     }
   }
 </script>
-<style lang="scss" scoped>
-  
-</style>

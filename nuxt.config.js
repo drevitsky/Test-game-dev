@@ -1,6 +1,13 @@
 
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+  router: {
+    base: '/nuxt_game/'
+  }
+} : {}
 export default {
   mode: 'universal',
+  
+  ...routerBase,
   /*
   ** Headers of the page
   */
@@ -36,6 +43,8 @@ export default {
   */
   buildModules: [
   ],
+  
+
   /*
   ** Nuxt.js modules
   */

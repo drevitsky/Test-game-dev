@@ -12,7 +12,7 @@
 
 <script>
   import axios from "axios";
-  
+
   export default {
     data() {
       return {
@@ -21,10 +21,10 @@
       }
     },
     created() {
-        this.getWinners()
-        this.$nuxt.$on('updateWinner', data => {
-          this.updateWinner = data.updateWinner
-        })
+      this.getWinners()
+      this.$nuxt.$on('updateWinner', data => {
+        this.updateWinner = data.updateWinner
+      })
     },
     methods: {
       async getWinners () {
@@ -41,14 +41,13 @@
       },
     },
     watch: {
-      updateWinner() {        
+      updateWinner() {
         if (this.updateWinner === true){
-            this.updateWinner = false
-            this.getWinners()
+          this.updateWinner = false
+          this.getWinners()
         }
       }
-    } 
-        
+    }
   }
 </script>
 
@@ -78,5 +77,4 @@
   opacity: 0;
   transform: translateX(50px);
 }
-
 </style>

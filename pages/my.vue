@@ -151,8 +151,8 @@ export default {
 
 .contact {
   // outline: 1px solid red;
-  padding: 10px 20px;
-  font-size: 20px;
+  padding: 10px ;
+  font-size: 16px;
   &__name {
     text-align: left;
   }

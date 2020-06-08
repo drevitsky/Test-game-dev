@@ -6,7 +6,7 @@
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-collapse" is-nav>
-      <b-navbar-nav>        
+      <b-navbar-nav>
         <nuxt-link class="my-link" exact active-class="active" to="/">Game</nuxt-link>
         <nuxt-link class="my-link" active-class="active" to="/my">My CV</nuxt-link>
       </b-navbar-nav>
@@ -15,9 +15,9 @@
   </b-navbar>
   <div class="navbar">
       <ul class="menu-list">
-          
+
       </ul>
-  </div>   
+  </div>
 </div>
 </template>
 
